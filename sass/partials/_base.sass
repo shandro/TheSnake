@@ -1,0 +1,27 @@
+html
+	font-size: 16px
+	background: $backgroundColor
+	height: 100%
+	&.no-js
+		opacity:  0
+
+	body
+		font-family: $Segoe
+		color: $textColor
+		font-size: 62.5%
+		line-height: 1.2em
+		overflow: hidden
+		max-height: 100%
+		height: auto !important
+
+		a, a:link, a:visited
+			color: #fff
+			text-decoration: none
+
+		*
+			-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+// ng-cloak used by Angular to hide content while processing
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak
+	display: none !important
+

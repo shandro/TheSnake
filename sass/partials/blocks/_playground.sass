@@ -1,0 +1,54 @@
+// Game score at the top of the page
+.game-score
+	font-size: 2em
+	line-height: 2.5em
+	font-family: $Segoe-Light
+	text-align: center
+	min-height: 50px
+
+// Game playground
+.playground
+	margin: 0 auto
+	border: 1px solid #f4f4f4
+	background: #fff
+	position: relative
+
+	// Countdown before game started
+	.countdown
+		position: absolute
+		width: 100%
+		height: 100%
+		overflow: hidden
+		span
+			text-align: center
+			position: absolute
+			width: 100%
+			top: 0
+			left: 0
+			font-size: 0em
+			line-height: 0em
+			font-family: $Segoe-Bold
+			color: $colorRed
+			opacity: 1
+
+		// Animation if countdown visible
+		&.active
+			span
+				+animation('countdown 1s ease-in-out')
+				// Loop through countdown values (three by default)
+				@for $i from 1 through 3
+					// Set one second delay before showing next countdown value
+					&:nth-of-type( #{$i} )
+						+animation-delay(#{$i}s)
+
+	// Snake cell styles
+	.cell
+		position: absolute
+		top: 0
+		left: 0
+		display: inline-block
+		margin: 1px 1px 0 0
+		width: 10px
+		height: 10px
+		background: $colorRed
+		+border-radius(2px)

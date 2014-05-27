@@ -1,0 +1,94 @@
+// Clearfix mixin
+@mixin clearfix
+	&:before,
+	&:after
+		content: '\0020'
+		display: block
+		overflow: hidden
+		visibility: hidden
+		width: 0
+		height: 0
+	&:after
+		clear: both
+	&
+		*zoom: 1
+
+// Clear mixin
+@mixin clear
+	&
+		clear: both
+		display: block
+		overflow: hidden
+		visibility: hidden
+		width: 0
+		height: 0
+// Animations
+@mixin animation-keyframes($name)
+	@-moz-keyframes #{$name}
+		@content
+	@-webkit-keyframes #{$name}
+		@content
+	@-o-keyframes #{$name}
+		@content
+	@-ms-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content
+@mixin animation-delay($delay)
+	-moz-animation-delay: #{$delay}
+	-webkit-animation-delay: #{$delay}
+	-o-animation-delay: #{$delay}
+	-ms-animation-delay: #{$delay}
+	animation-delay: #{$delay}
+
+@mixin animation-fill-mode($mode)
+	-moz-animation-fill-mode: #{$mode}
+	-webkit-animation-fill-mode: #{$mode}
+	-o-animation-fill-mode: #{$mode}
+	-ms-animation-fill-mode: #{$mode}
+	animation-fill-mode: #{$mode}
+
+@mixin animation($animation)
+	-moz-animation: #{#{$animation}}
+	-webkit-animation: #{$animation}
+	-o-animation: #{$animation}
+	-ms-animation: #{$animation}
+	animation: #{$animation}
+// Button
+@mixin button($background: #fff)
+	&
+		display: inline-block
+		vertical-align: top
+		background: $background
+		margin: 0 5px .5em
+		padding: 2px 0
+		min-width: 95px
+		+box-shadow(inset 0 -2px 0 darken($background, 5%))
+		+border-radius(4px)
+		+transition(all .1s)
+		&:hover
+			background: darken($background, 2%)
+		&:active,
+		&.active,
+		&.active-add
+			background: darken($background, 5%)
+			padding: 4px 0 0
+			+box-shadow(inset 0 2px 0 darken($background, 10%))
+			span
+				+opacity(.4)
+		span
+			display: block
+			font-size: 1.3em
+			line-height: 1.2em
+			text-align: center
+			padding: 2px 25px 3px
+			min-width: 35px
+			text-transform: uppercase
+			position: relative
+			+transition(opacity .1s)
+			&:before
+				font-size: 1.3em
+				line-height: 1.2em
+				display: block
+				text-align: center
+				font-family: $Glyphicons

@@ -1,0 +1,120 @@
+.game-nav
+	position: absolute
+	top: 50%
+	width: 100%
+	padding: 4em 0 3.5em
+	margin-top: -102px
+	background: $colorRed
+	color: #fff
+	z-index: 1
+	+transition(opacity .3s)
+	// AngularJS animation to fade in/out navigation block
+	&.ng-hide
+		display: block !important
+		opacity: 0
+	&.ng-hide-add,
+	&.ng-hide-remove-active
+		opacity: 1
+	&.ng-hide-add-active,
+	&.ng-hide-remove
+		opacity: 0
+
+	h1
+		margin: 0 0 .5em
+		text-align: center
+		font-family: $Segoe-Light
+
+	// Navigation buttons
+	nav
+		text-align: center
+
+		.play
+			span:before
+				content: "\e072"
+			+button($colorGreen)
+			// Decreasing button padding after round failed (button label is wider)
+			&.round-failed
+				span
+					padding-left: 15px
+					padding-right: 15px
+
+		.scores
+			span:before
+				content: "\e185"
+			+button($colorGreen)
+
+		.options
+			span:before
+				content: "\e019"
+			+button($colorGreen)
+
+	// Additional blocks in navigation section (options and scores)
+	.additional-blocks
+		padding-top: 15px
+
+		& > div
+			width: 300px
+			padding: 5px 10px
+			margin: 0 auto
+			background: #fff
+			font-size: 1.4em
+			line-height: 1.2em
+			font-family: $Segoe-Light
+			color: $textColor
+			+border-radius(2px)
+
+			h2
+				font-size: 1.3em
+				line-height: 1.4em
+				background: $colorRed
+				color: #fff
+				margin: 0 -10px 5px
+				text-align: center
+
+			// Game options block
+			&.game-option
+				.game-option-row
+					padding: 5px 0
+
+					.slider
+						width: 205px
+						height: 5px
+						margin: 7px
+						background: $colorGreen
+						float: right
+						+border-radius(2px)
+
+						.handler
+							position: relative
+							display: block
+							width: 0
+							cursor: pointer
+							&:after
+								display: block
+								width: 20px
+								height: 21px
+								background: $colorRed
+								position: absolute
+								top: -8px
+								right: -10px
+								content: "\E120"
+								color: #fff
+								text-align: center
+								font-family: $Glyphicons
+								font-size: 1em
+								line-height: 1.5em
+								+border-radius(2px)
+
+			// Game scores block
+			&.scores
+				.scores-content
+					+columns(3 auto)
+					span
+						display: block
+						b
+							display: block
+							float: left
+							width: 1.6em
+							text-align: right
+							margin-right: 0.5em
+							font-family: $Segoe
