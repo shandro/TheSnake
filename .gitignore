@@ -1,6 +1,7 @@
 .idea
 .sass-cache
 .logs
+dist
 tmp
 node_modules
 .DS_Store
